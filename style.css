@@ -1,0 +1,84 @@
+/* Fonts and Color */
+
+body {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: rbg(100,100,100);
+  margin: 30px 0px;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+
+/* Custo style */
+
+.container {
+  width: 400px;
+}
+
+.row .card {
+  margin-bottom: 10px;
+  border-style: none;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.card div {
+  height: 100px;
+  cursor: pointer;
+}
+
+.rocky {
+  background-image: url("http://www.freecovers.net/preview/0/073f68e3ce37358a7e7aaaeec4adb5f4/big.jpg");
+  background-size: cover;
+}
+
+.space {
+  background-image: url("http://www.freecovers.net/preview/0/2a2c3b5f934f2b43dfb7907b180c4391/big.jpg");
+  background-size: cover;
+}
+
+.fnf {
+  background-image: url("http://www.freecovers.net/preview/0/66d97a8f3bf996e443431fd19744375f/big.jpg");
+  background-size: cover;
+}
+
+.batman {
+  background-image: url("http://www.freecovers.net/preview/0/1af1c72cfda64da855b2ac2b8808504b/big.jpg");
+  background-size: cover;
+}
+
+.starwars {
+  background-image: url("http://www.freecovers.net/preview/0/77d8d1d6b258607e0422f377a4d881be/big.jpg");
+  background-size: cover;
+}
+
+.daftpunk {
+  background-image: url("http://www.freecovers.net/preview/0/bbe49a90ef3616f562823cd0ffba6354/big.jpg");
+  background-size: cover;
+}
+
+.ymca {
+  background-image: url("http://www.freecovers.net/preview/0/8cfcd56d50a1269459f0e66bca232464/big.jpg");
+  background-size: cover;
+}
+
+.queen {
+  background-image: url("http://www.freecovers.net/preview/0/33ab9a255add0caa9a96cce3c76bf4ab/big.jpg");
+  background-size: cover;
+}
+
+.party {
+  background-image: url("http://www.freecovers.net/preview/0/af6d9d5b12ccb79fa1936be2859318f3/big.jpg");
+  background-size: cover;
+}
