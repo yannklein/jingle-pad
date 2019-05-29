@@ -82,3 +82,24 @@ p {
   background-image: url("http://www.freecovers.net/preview/0/af6d9d5b12ccb79fa1936be2859318f3/big.jpg");
   background-size: cover;
 }
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: auto;
+  }
+
+  .card div {
+    height: 220px;
+  }
+  .row .card {
+    margin-bottom: 10px;
+    border-style: none;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .card div {
+    height: 150px;
+  }
+}
