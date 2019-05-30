@@ -9,7 +9,10 @@ let audioCeleb = new Audio('https://archive.org/download/EyeOfTiger/Survivor-Eye
 let audioDP = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 
 const audioPlayEvent = (card, audio) => {
-  card.addEventListener( "click", (event) => { audio.paused ? audio.play() : audio.pause(); });
+  card.addEventListener( "click", (event) => {
+    audio.paused ? audio.play() : audio.pause();
+    event.currentTarget.querySelector("div").classList.toggle("my-card-selected");
+  });
 }
 
 const cards = document.querySelectorAll(".card div");
@@ -39,7 +42,7 @@ cards.forEach((card) => {
       case "queen":
         audioPlayEvent(card, audioQueen);
         break;
-      case "celebration":
+      case "party":
         audioPlayEvent(card, audioCeleb);
         break;
       case "daftpunk":
