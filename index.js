@@ -1,6 +1,7 @@
 let audioRocky = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
-let audioSpace = new Audio('https://en.wikipedia.org/wiki/File:Richard_Strauss_-_Also_Sprach_Zarathustra.ogg');
+let audioSpace = new Audio('https://ia800501.us.archive.org/7/items/AlsoSprachZarathustraOp.30Strauss/Also%20Sprach%20Zarathustra%2C%20Op.%2030%20-%20Strauss.mp3');
 let audioFnf = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
+// https://muz19.z1.fm/3/03/teriyaki_boyz_-_tokyo_drift_fast__furious_saundtrek_-_trojnoj_forsazh_tokijskij_drift_(zf.fm).mp3
 let audioBatman = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 let audioSW = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 let audioYmca = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
@@ -10,6 +11,7 @@ let audioDP = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfT
 
 // Preload audios
 audioRocky.load();
+audioSpace.load();
 
 let playString = '<i class="far fa-play-circle"></i>';
 let pauseString = '<i class="fas fa-pause-circle"></i>';
