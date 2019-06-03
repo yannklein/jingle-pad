@@ -8,6 +8,9 @@ let audioQueen = new Audio('https://archive.org/download/EyeOfTiger/Survivor-Eye
 let audioCeleb = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 let audioDP = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 
+// Preload audios
+audioRocky.load();
+
 let playString = '<i class="far fa-play-circle"></i>';
 let pauseString = '<i class="fas fa-pause-circle"></i>';
 
@@ -60,5 +63,10 @@ cards.forEach((card) => {
       default:
     }
 })
+
+window.onload = ( () => {
+  document.querySelector(".loader-container").style.display = "none";
+  document.querySelector(".jingle-container").style.display = "block";
+});
 
 
