@@ -2,12 +2,13 @@
 
 body {
   text-align: center;
+  line-height: 1.3em;
 }
 
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 50px;
-  color: rbg(100,100,100);
+  color: rgb(100,100,100);
   margin: 30px 0px;
 }
 
@@ -24,18 +25,23 @@ p {
 /* Custo style */
 
 .container {
-  width: 400px;
+  width: auto;
 }
 
 .row .card {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   border-style: none;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  display:inline-block;
 }
 
 .card div {
-  height: 100px;
+  height: auto;
   cursor: pointer;
+  font-size: 180px;
+  color: rgb(200,200,200,0.5);
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  padding: 5px;
 }
 
 .rocky {
@@ -43,13 +49,13 @@ p {
   background-size: cover;
 }
 
-.my-card-selected {
+/*.my-card-selected {
   background-image: url("https://image.flaticon.com/icons/png/512/26/26025.png"), linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
-}
+}*/
 
 .space {
   background-image: url("http://www.freecovers.net/preview/0/2a2c3b5f934f2b43dfb7907b180c4391/big.jpg");
@@ -91,23 +97,23 @@ p {
   background-size: cover;
 }
 
-@media only screen and (max-width: 1000px) {
-  .container {
-    width: auto;
-  }
-
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
   .card div {
-    height: 220px;
-  }
-  .row .card {
-    margin-bottom: 10px;
-    border-style: none;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    font-size: 220px;
   }
 }
 
-@media only screen and (max-width: 500px) {
+/*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
   .card div {
-    height: 150px;
+    font-size: 200px;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  .card div {
+    font-size: 140px;
   }
 }

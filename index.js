@@ -8,10 +8,19 @@ let audioQueen = new Audio('https://archive.org/download/EyeOfTiger/Survivor-Eye
 let audioCeleb = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 let audioDP = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 
+let playString = '<i class="far fa-play-circle"></i>';
+let pauseString = '<i class="fas fa-pause-circle"></i>';
+
 const audioPlayEvent = (card, audio) => {
   card.addEventListener( "click", (event) => {
-    audio.paused ? audio.play() : audio.pause();
-    event.currentTarget.querySelector("div").classList.toggle("my-card-selected");
+    if (audio.paused) {
+      audio.play()
+      event.currentTarget.querySelector("div").innerHTML = pauseString;
+    }
+    else {
+      event.currentTarget.querySelector("div").innerHTML = playString;
+      audio.pause();
+    }
   });
 }
 
