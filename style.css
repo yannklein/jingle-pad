@@ -103,6 +103,7 @@ p {
 }
 
 .loader-container {
+  display: none;
   text-align: left;
 }
 

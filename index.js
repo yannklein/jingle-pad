@@ -16,16 +16,28 @@ audioFuture.load();
 
 let playString = '<i class="far fa-play-circle"></i>';
 let pauseString = '<i class="fas fa-pause-circle"></i>';
+let loadingString = '<i class="fas fa-spinner"></i>'
 
 const audioPlayEvent = (card, audio) => {
+  card.querySelector("div").innerHTML = loadingString;
+
+  audio.addEventListener("canplaythrough", (event) => {
+    card.querySelector("div").innerHTML = playString;
+  });
+
   card.addEventListener( "click", (event) => {
-    if (audio.paused) {
-      audio.play()
-      event.currentTarget.querySelector("div").innerHTML = pauseString;
-    }
-    else {
-      event.currentTarget.querySelector("div").innerHTML = playString;
-      audio.pause();
+    current_card = event.currentTarget.querySelector("div");
+    console.log(current_card);
+    debugger
+    if(current_card.innerHTML != loadingString){
+      if (audio.paused) {
+        audio.play()
+        current_card.innerHTML = pauseString;
+      }
+      else {
+        current_card.innerHTML = playString;
+        audio.pause();
+      }
     }
   });
 }
@@ -35,44 +47,37 @@ console.log(cards);
 
 cards.forEach((card) => {
   switch(card.className) {
-      case "rocky":
-      console.log("play")
-        audioPlayEvent(card, audioRocky);
-        break;
-      case "space":
-        audioPlayEvent(card, audioSpace);
-        break;
-      case "fnf":
-        audioPlayEvent(card, audioFnf);
-        break;
-      case "batman":
-        audioPlayEvent(card, audioBatman);
-        break;
-      case "starwars":
-        audioPlayEvent(card, audioSW);
-        break;
-      case "ymca":
-        audioPlayEvent(card, audioYmca);
-        break;
-      case "queen":
-        audioPlayEvent(card, audioQueen);
-        break;
-      case "party":
-        audioPlayEvent(card, audioCeleb);
-        break;
-      case "daftpunk":
-        audioPlayEvent(card, audioDP);
-        break;
-      case "future":
-        audioPlayEvent(card, audioFuture);
-        break;
-      default:
-    }
+    case "rocky":
+    console.log("play")
+    audioPlayEvent(card, audioRocky);
+    break;
+    case "space":
+    audioPlayEvent(card, audioSpace);
+    break;
+    case "fnf":
+    audioPlayEvent(card, audioFnf);
+    break;
+    case "batman":
+    audioPlayEvent(card, audioBatman);
+    break;
+    case "starwars":
+    audioPlayEvent(card, audioSW);
+    break;
+    case "ymca":
+    audioPlayEvent(card, audioYmca);
+    break;
+    case "queen":
+    audioPlayEvent(card, audioQueen);
+    break;
+    case "party":
+    audioPlayEvent(card, audioCeleb);
+    break;
+    case "daftpunk":
+    audioPlayEvent(card, audioDP);
+    break;
+    case "future":
+    audioPlayEvent(card, audioFuture);
+    break;
+    default:
+  }
 })
-
-window.onload = ( () => {
-  document.querySelector(".loader-container").style.display = "none";
-  document.querySelector(".jingle-container").style.display = "block";
-});
-
-
