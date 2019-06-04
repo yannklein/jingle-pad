@@ -97,6 +97,11 @@ p {
   background-size: cover;
 }
 
+.future {
+  background-image: url("http://www.freecovers.net/preview/0/8bf7d2cb24b81a65cd4e0a5727b2867e/big.jpg");
+  background-size: cover;
+}
+
 .loader-container {
   text-align: left;
 }
