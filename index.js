@@ -9,11 +9,6 @@ let audioQueen = new Audio('https://archive.org/download/EyeOfTiger/Survivor-Eye
 let audioCeleb = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 let audioDP = new Audio('https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3');
 
-// Preload audios
-audioRocky.load();
-audioSpace.load();
-audioFuture.load();
-
 let playString = '<i class="far fa-play-circle"></i>';
 let pauseString = '<i class="fas fa-pause-circle"></i>';
 let loadingString = '<i class="fas fa-spinner"></i>'
@@ -43,7 +38,6 @@ const audioPlayEvent = (card, audio) => {
 }
 
 const cards = document.querySelectorAll(".card div");
-console.log(cards);
 
 cards.forEach((card) => {
   switch(card.className) {
@@ -81,3 +75,9 @@ cards.forEach((card) => {
     default:
   }
 })
+
+// Preload audios
+audioRocky.load();
+audioSpace.load();
+audioFnf.load();
+audioFuture.load();
