@@ -20,10 +20,20 @@ const audioPlayEvent = (card, audio) => {
     card.querySelector("div").innerHTML = playString;
   });
 
+  card.addEventListener( "touchmove", (event) => {
+    let current_card = event.currentTarget.querySelector("div");
+
+    console.log("reset1");
+    if(current_card.innerHTML != loadingString){
+      audio.currentTime = 0;
+      audio.pause();
+      current_card.innerHTML = playString;
+      console.log("reset");
+    }
+  });
+
   card.addEventListener( "click", (event) => {
-    current_card = event.currentTarget.querySelector("div");
-    console.log(current_card);
-    debugger
+    let current_card = event.currentTarget.querySelector("div");
     if(current_card.innerHTML != loadingString){
       if (audio.paused) {
         audio.play()
@@ -35,6 +45,7 @@ const audioPlayEvent = (card, audio) => {
       }
     }
   });
+
 }
 
 const cards = document.querySelectorAll(".card div");
