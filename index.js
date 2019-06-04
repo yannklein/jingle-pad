@@ -16,7 +16,7 @@ let loadingString = '<i class="fas fa-spinner"></i>'
 const audioPlayEvent = (card, audio) => {
   card.querySelector("div").innerHTML = loadingString;
 
-  audio.addEventListener("canplaythrough", (event) => {
+  audio.addEventListener("canplay", (event) => {
     card.querySelector("div").innerHTML = playString;
   });
 
