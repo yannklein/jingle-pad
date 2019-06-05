@@ -23,12 +23,10 @@ const audioPlayEvent = (card, audio) => {
   card.addEventListener( "touchmove", (event) => {
     let current_card = event.currentTarget.querySelector("div");
 
-    console.log("reset1");
     if(current_card.innerHTML != loadingString){
       audio.currentTime = 0;
       audio.pause();
       current_card.innerHTML = playString;
-      console.log("reset");
     }
   });
 
@@ -88,7 +86,8 @@ cards.forEach((card) => {
 })
 
 // Preload audios
+audioFuture.load();
 audioRocky.load();
 audioSpace.load();
 audioFnf.load();
-audioFuture.load();
+
