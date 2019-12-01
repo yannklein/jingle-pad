@@ -44,64 +44,6 @@ p {
   padding: 5px;
 }
 
-.rocky {
-  background-image: url("http://www.freecovers.net/preview/0/073f68e3ce37358a7e7aaaeec4adb5f4/big.jpg");
-  background-size: cover;
-}
-
-/*.my-card-selected {
-  background-image: url("https://image.flaticon.com/icons/png/512/26/26025.png"), linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 100%);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
-}*/
-
-.space {
-  background-image: url("http://www.freecovers.net/preview/0/2a2c3b5f934f2b43dfb7907b180c4391/big.jpg");
-  background-size: cover;
-}
-
-.fnf {
-  background-image: url("http://www.freecovers.net/preview/0/66d97a8f3bf996e443431fd19744375f/big.jpg");
-  background-size: cover;
-}
-
-.batman {
-  background-image: url("http://www.freecovers.net/preview/0/1af1c72cfda64da855b2ac2b8808504b/big.jpg");
-  background-size: cover;
-}
-
-.starwars {
-  background-image: url("http://www.freecovers.net/preview/0/77d8d1d6b258607e0422f377a4d881be/big.jpg");
-  background-size: cover;
-}
-
-.daftpunk {
-  background-image: url("http://www.freecovers.net/preview/0/bbe49a90ef3616f562823cd0ffba6354/big.jpg");
-  background-size: cover;
-}
-
-.ymca {
-  background-image: url("http://www.freecovers.net/preview/0/8cfcd56d50a1269459f0e66bca232464/big.jpg");
-  background-size: cover;
-}
-
-.queen {
-  background-image: url("http://www.freecovers.net/preview/0/33ab9a255add0caa9a96cce3c76bf4ab/big.jpg");
-  background-size: cover;
-}
-
-.party {
-  background-image: url("http://www.freecovers.net/preview/0/af6d9d5b12ccb79fa1936be2859318f3/big.jpg");
-  background-size: cover;
-}
-
-.future {
-  background-image: url("http://www.freecovers.net/preview/0/8bf7d2cb24b81a65cd4e0a5727b2867e/big.jpg");
-  background-size: cover;
-}
-
 /*Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {
   .card div {
