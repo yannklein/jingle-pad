@@ -27,7 +27,7 @@ const loadingString = '<i class="fas fa-spinner"></i>';
 
 // Fetch the songs picture
 songs.forEach((song) => {
-  fetch(`http://www.omdbapi.com/?s=${song.name}&apikey=${key}`)
+  fetch(`https://www.omdbapi.com/?s=${song.name}&apikey=${key}`)
   .then(response => response.json())
   .then((data) => {
     song.card.style.backgroundImage = `url(${data.Search[0].Poster})`;
