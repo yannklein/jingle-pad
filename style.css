@@ -1,53 +1,55 @@
 /* Fonts and Color */
-
 body {
-  text-align: center;
-  line-height: 1.3em;
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 50px;
   color: rgb(100,100,100);
-  margin: 30px 0px;
-}
-
-h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 24px;
-}
-
-p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  margin-top: 64px;
+  text-align: center;;
 }
 
 /* Custo style */
 
-.container {
-  width: auto;
+.cards {
+  padding: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 32px;
 }
 
-.row .card {
-  margin-bottom: 30px;
+.card {
   border-style: none;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 16px rgba(0,0,0,0.4);
   display:inline-block;
 }
 
 .card div {
-  height: auto;
+  width: 100%;
+  height: 300px;
   cursor: pointer;
   font-size: 180px;
-  color: rgb(200,200,200,0.5);
-  text-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  color: rgb(200,200,200,0.8);
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.8);
   padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {
   .card div {
     font-size: 220px;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -56,11 +58,17 @@ p {
   .card div {
     font-size: 200px;
   }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
   .card div {
     font-size: 140px;
+  }
+  .cards {
+    grid-template-columns: 1fr;
   }
 }

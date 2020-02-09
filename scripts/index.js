@@ -3,21 +3,30 @@ const key = "9555c244";
 // Jingle pad songs information
 var songs = [
   { name: "Rocky Balboa", 
-    card: document.querySelector(".rocky div"),
+    card: document.querySelector(".rocky"),
     source:'https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3'
   },
   { name: "2001: A Space Odyssey", 
-    card: document.querySelector(".space div"),
+    card: document.querySelector(".space"),
     source:'https://ia800501.us.archive.org/7/items/AlsoSprachZarathustraOp.30Strauss/Also%20Sprach%20Zarathustra%2C%20Op.%2030%20-%20Strauss.mp3'
   },
   { name: "Back to the Future", 
-    card: document.querySelector(".future div"),
+    card: document.querySelector(".future"),
     source: 'http://soundfxcenter.com/movies/back-to-the-future/8d82b5_Back_to_the_Future_Theme_Song.mp3'
   },
   { name: "Fast and Furious", 
-    card: document.querySelector(".fnf div"),
+    card: document.querySelector(".fnf"),
     source:'https://muz19.z1.fm/3/03/teriyaki_boyz_-_tokyo_drift_fast__furious_saundtrek_-_trojnoj_forsazh_tokijskij_drift_(zf.fm).mp3'
   },
+  { name: "Inspector gadget", 
+    card: document.querySelector(".gadget"),
+    source:'https://instrumentalfx.co/wp-content/upload/11/Inspector-Gadget-Theme-Song.mp3'
+  },
+  { name: "Tetris", 
+    card: document.querySelector(".tetris"),
+    source:'https://ia800504.us.archive.org/33/items/TetrisThemeMusic/Tetris.mp3'
+  },
+  
 ];
 
 // Jingle button type initialization
@@ -31,7 +40,6 @@ songs.forEach((song) => {
   .then(response => response.json())
   .then((data) => {
     song.card.style.backgroundImage = `url(${data.Search[0].Poster})`;
-    song.card.style.backgroundSize = 'cover';
   });
 });
 
