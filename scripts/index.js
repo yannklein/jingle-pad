@@ -1,5 +1,4 @@
 import { fetchSongCover, songsLoading } from './song';
-import { initScheduler } from './scheduler';
 
 // Jingle pad songs information
 var SONGS = [
