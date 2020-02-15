@@ -26,7 +26,7 @@ const playScheduledSongs = (timeNow, card, audio) => {
     scheduledTime.setHours(scheduledTimeString.substring(0,2));
     scheduledTime.setMinutes(scheduledTimeString.substring(3));
     // console.log("time check");
-    if (itIsTime(scheduledTime, timeNow) && audio.paused) {
+    if (itIsTime(scheduledTime, timeNow) && audio.paused && audio.currentTime < 40) {
       // console.log("Time!");
       playSong(card, audio);
     }
@@ -34,7 +34,7 @@ const playScheduledSongs = (timeNow, card, audio) => {
     if (audio.currentTime >= 30){
       audio.volume = 1 - ((audio.currentTime - 30) / 10)
     }
-    if (audio.currentTime >= 60){
+    if (audio.currentTime >= 40){
       pauseSong(card, audio);
       checkbox.cheked = false;
       time.value = "";
