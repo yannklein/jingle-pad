@@ -20,7 +20,7 @@ const playScheduledSongs = (timeNow, card, audio) => {
   const checkbox = card.querySelector('.card-scheduler-check');
   const time = card.querySelector('.card-scheduler-time');
   // console.log("first check", time, checkbox);
-  if (checkbox && checkbox.checked && time) {
+  if (checkbox.checked) {
     const scheduledTime = new Date();
     const scheduledTimeString = time.value;
     scheduledTime.setHours(scheduledTimeString.substring(0,2));
