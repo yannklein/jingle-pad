@@ -103,34 +103,45 @@ var SONGS = [
   { name: "Rocky Balboa",
     card: document.querySelector(".rocky"),
     source:'https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3',
-    scheduled: false
+    scheduled: false,
+    playFrom: 0
   },
   { name: "2001: A Space Odyssey",
     card: document.querySelector(".space"),
     source:'https://ia800501.us.archive.org/7/items/AlsoSprachZarathustraOp.30Strauss/Also%20Sprach%20Zarathustra%2C%20Op.%2030%20-%20Strauss.mp3',
-    scheduled: false
+    scheduled: false,
+    playFrom: 0
   },
   { name: "Back to the Future",
     card: document.querySelector(".future"),
     source: 'http://soundfxcenter.com/movies/back-to-the-future/8d82b5_Back_to_the_Future_Theme_Song.mp3',
-    scheduled: false
+    scheduled: false,
+    playFrom: 0
   },
   { name: "Fast and Furious",
     card: document.querySelector(".fnf"),
     source:'https://muz19.z1.fm/3/03/teriyaki_boyz_-_tokyo_drift_fast__furious_saundtrek_-_trojnoj_forsazh_tokijskij_drift_(zf.fm).mp3',
-    scheduled: false
+    scheduled: false,
+    playFrom: 0
   },
   { name: "Inspector gadget",
     card: document.querySelector(".gadget"),
     source:'https://instrumentalfx.co/wp-content/upload/11/Inspector-Gadget-Theme-Song.mp3',
-    scheduled: false
+    scheduled: false,
+    playFrom: 0
   },
   { name: "Tetris",
     card: document.querySelector(".tetris"),
     source:'https://ia800504.us.archive.org/33/items/TetrisThemeMusic/Tetris.mp3',
-    scheduled: false
+    scheduled: false,
+    playFrom: 0
   },
-
+  { name: "Star Trek",
+    card: document.querySelector(".star-trek"),
+    source:'https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=The+Next+Generation+-+theme&filename=nd/NDc5NzEzNTg0Nzk3OTY_Z7_2bu7s2XFCs.mp3',
+    scheduled: false,
+    playFrom: 20
+  }
 ];
 
 // Fetch the songs picture
@@ -174,21 +185,22 @@ const itIsTime = (scheduledTime, timeNow) => {
   // console.log(scheduledTime.getHours(), scheduledTime.getMinutes());
   // console.log(timeNow.getHours(), timeNow.getMinutes());
   return`${scheduledTime.getHours()}${scheduledTime.getMinutes()}` === `${timeNow.getHours()}${timeNow.getMinutes()}`;
-  
+
 }
 
 //Set song playing timer
-const playScheduledSongs = (timeNow, card, audio) => {
+const playScheduledSongs = (timeNow, song, audio) => {
+  const card = song.card;
   const checkbox = card.querySelector('.card-scheduler-check');
   const time = card.querySelector('.card-scheduler-time');
   // console.log("first check", time, checkbox);
-  if (checkbox && checkbox.checked && time) {
+  if (checkbox.checked) {
     const scheduledTime = new Date();
     const scheduledTimeString = time.value;
     scheduledTime.setHours(scheduledTimeString.substring(0,2));
     scheduledTime.setMinutes(scheduledTimeString.substring(3));
     // console.log("time check");
-    if (itIsTime(scheduledTime, timeNow) && audio.paused) {
+    if (itIsTime(scheduledTime, timeNow) && audio.paused && audio.currentTime < 40) {
       // console.log("Time!");
       Object(_song__WEBPACK_IMPORTED_MODULE_0__["playSong"])(card, audio);
     }
@@ -196,7 +208,7 @@ const playScheduledSongs = (timeNow, card, audio) => {
     if (audio.currentTime >= 30){
       audio.volume = 1 - ((audio.currentTime - 30) / 10)
     }
-    if (audio.currentTime >= 60){
+    if (audio.currentTime >= 40){
       Object(_song__WEBPACK_IMPORTED_MODULE_0__["pauseSong"])(card, audio);
       checkbox.cheked = false;
       time.value = "";
@@ -204,15 +216,16 @@ const playScheduledSongs = (timeNow, card, audio) => {
   }
 };
 
-const initScheduler = (card, audio) => {
+const initScheduler = (song, audio) => {
   setInterval(() => {
     let timeNow = new Date();
 
     updateTimeDisplay(timeNow);
 
-    playScheduledSongs(timeNow, card, audio);
+    playScheduledSongs(timeNow, song, audio);
   }, 1000);
 };
+
 
 
 /***/ }),
@@ -252,7 +265,7 @@ const fetchSongCover = (songs) => {
 };
 
 const playSong = (card, audio) => {
-  audio.play()
+  audio.play();
   card.querySelector(".card-image").innerHTML = pauseString;
 };
 
@@ -297,7 +310,7 @@ const asyncSongLoading = async (song) => {
           audio.load();
           initPlayEvent(song.card, audio);
           resolve(`${song.name} is loaded!`);
-          Object(_scheduler__WEBPACK_IMPORTED_MODULE_0__["initScheduler"])(song.card, audio);
+          Object(_scheduler__WEBPACK_IMPORTED_MODULE_0__["initScheduler"])(song, audio);
         })
       })(song);
     // console.log(msg);
@@ -308,6 +321,7 @@ const songsLoading = (songs) => {
     asyncSongLoading(song);
   });
 };
+
 
 
 
