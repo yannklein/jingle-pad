@@ -12,11 +12,12 @@ const itIsTime = (scheduledTime, timeNow) => {
   // console.log(scheduledTime.getHours(), scheduledTime.getMinutes());
   // console.log(timeNow.getHours(), timeNow.getMinutes());
   return`${scheduledTime.getHours()}${scheduledTime.getMinutes()}` === `${timeNow.getHours()}${timeNow.getMinutes()}`;
-  
+
 }
 
 //Set song playing timer
-const playScheduledSongs = (timeNow, card, audio) => {
+const playScheduledSongs = (timeNow, song, audio) => {
+  const card = song.card;
   const checkbox = card.querySelector('.card-scheduler-check');
   const time = card.querySelector('.card-scheduler-time');
   // console.log("first check", time, checkbox);
@@ -42,13 +43,13 @@ const playScheduledSongs = (timeNow, card, audio) => {
   }
 };
 
-const initScheduler = (card, audio) => {
+const initScheduler = (song, audio) => {
   setInterval(() => {
     let timeNow = new Date();
 
     updateTimeDisplay(timeNow);
 
-    playScheduledSongs(timeNow, card, audio);
+    playScheduledSongs(timeNow, song, audio);
   }, 1000);
 };
 export { initScheduler };

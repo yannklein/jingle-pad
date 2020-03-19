@@ -19,7 +19,7 @@ const fetchSongCover = (songs) => {
 };
 
 const playSong = (card, audio) => {
-  audio.play()
+  audio.play();
   card.querySelector(".card-image").innerHTML = pauseString;
 };
 
@@ -64,7 +64,7 @@ const asyncSongLoading = async (song) => {
           audio.load();
           initPlayEvent(song.card, audio);
           resolve(`${song.name} is loaded!`);
-          initScheduler(song.card, audio);
+          initScheduler(song, audio);
         })
       })(song);
     // console.log(msg);
