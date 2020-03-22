@@ -18,38 +18,41 @@ const fetchSongCover = (songs) => {
   });
 };
 
-const playSong = (card, audio) => {
+const playSong = (song, audio) => {
+  audio.currentTime = song.playFrom;
   audio.play();
-  card.querySelector(".card-image").innerHTML = pauseString;
+  song.card.querySelector(".card-image").innerHTML = pauseString;
 };
 
-const pauseSong = (card, audio) => {
-  card.querySelector(".card-image").innerHTML = playString;
+const pauseSong = (song, audio) => {
+  song.card.querySelector(".card-image").innerHTML = playString;
   audio.pause();
 };
 
 // Initialize play event listener
-const initPlayEvent = (card, audio) => {
-  const cardImage = card.querySelector(".card-image");
+const initPlayEvent = (song, audio) => {
+  const cardImage = song.card.querySelector(".card-image");
   audio.addEventListener("canplay", (event) => {
-    cardImage.innerHTML = `${playString}`;
+    if(cardImage.innerHTML.trim() === loadingString){
+      cardImage.innerHTML = `${playString}`;
+    }
   });
 
   // console.log(card);
   cardImage.addEventListener( "touchmove", (event) => {
-    if(cardImage.innerHTML != loadingString){
+    if(cardImage.innerHTML.trim() != loadingString){
       audio.currentTime = 0;
-      pauseSong(card, audio);
+      pauseSong(song, audio);
     }
   });
 
   cardImage.addEventListener( "click", (event) => {
-    if(card.cardImageinnerHTML != loadingString){
+    if(song.card.querySelector(".card-image").innerHTML != loadingString){
       if (audio.paused) {
-        playSong(card, audio);
+        playSong(song, audio);
       }
       else {
-        pauseSong(card, audio);
+        pauseSong(song, audio);
       }
     }
   });
@@ -62,7 +65,7 @@ const asyncSongLoading = async (song) => {
           let audio = new Audio();
           audio.src = song.source;
           audio.load();
-          initPlayEvent(song.card, audio);
+          initPlayEvent(song, audio);
           resolve(`${song.name} is loaded!`);
           initScheduler(song, audio);
         })
