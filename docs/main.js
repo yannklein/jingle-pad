@@ -104,43 +104,55 @@ var SONGS = [
     card: document.querySelector(".rocky"),
     source:'https://archive.org/download/EyeOfTiger/Survivor-EyeOfTheTigermp3-codes1.com.mp3',
     scheduled: false,
-    playFrom: 0
+    playFrom: "0"
   },
   { name: "2001: A Space Odyssey",
     card: document.querySelector(".space"),
     source:'https://ia800501.us.archive.org/7/items/AlsoSprachZarathustraOp.30Strauss/Also%20Sprach%20Zarathustra%2C%20Op.%2030%20-%20Strauss.mp3',
     scheduled: false,
-    playFrom: 0
+    playFrom: "20"
   },
   { name: "Back to the Future",
     card: document.querySelector(".future"),
     source: 'http://soundfxcenter.com/movies/back-to-the-future/8d82b5_Back_to_the_Future_Theme_Song.mp3',
     scheduled: false,
-    playFrom: 0
+    playFrom: "0"
   },
   { name: "Fast and Furious",
     card: document.querySelector(".fnf"),
     source:'https://muz19.z1.fm/3/03/teriyaki_boyz_-_tokyo_drift_fast__furious_saundtrek_-_trojnoj_forsazh_tokijskij_drift_(zf.fm).mp3',
     scheduled: false,
-    playFrom: 0
+    playFrom: "0"
   },
   { name: "Inspector gadget",
     card: document.querySelector(".gadget"),
     source:'https://instrumentalfx.co/wp-content/upload/11/Inspector-Gadget-Theme-Song.mp3',
     scheduled: false,
-    playFrom: 0
+    playFrom: "0"
   },
   { name: "Tetris",
     card: document.querySelector(".tetris"),
     source:'https://ia800504.us.archive.org/33/items/TetrisThemeMusic/Tetris.mp3',
     scheduled: false,
-    playFrom: 0
+    playFrom: "0"
   },
   { name: "Star Trek",
     card: document.querySelector(".star-trek"),
-    source:'https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=The+Next+Generation+-+theme&filename=nd/NDc5NzEzNTg0Nzk3OTY_Z7_2bu7s2XFCs.mp3',
+    source:'https://apiyt.com/convertto.php?utm_source=Mp3bearx.info&sid=p5kcBxL7-qI;1584891148;ca1a97ee0d8825d70fd12b25e777a99&p=1',
     scheduled: false,
-    playFrom: 20
+    playFrom: "51.5"
+  },
+  { name: "Knight Rider",
+    card: document.querySelector(".knight-rider"),
+    source:'https://apiyt.com/convertto.php?utm_source=Mp3bearx.info&sid=GbfVmzF7N4g;1584887229;dfcc0c31311377e932eed1b84533938&p=1',
+    scheduled: false,
+    playFrom: "0"
+  },
+  { name: "We are the Champions",
+    card: document.querySelector(".queen"),
+    source:'https://fcsongs.com/uploads/audio/Queen - We Are The Champions.mp3',
+    scheduled: false,
+    playFrom: "33"
   }
 ];
 
@@ -202,14 +214,14 @@ const playScheduledSongs = (timeNow, song, audio) => {
     // console.log("time check");
     if (itIsTime(scheduledTime, timeNow) && audio.paused && audio.currentTime < 40) {
       // console.log("Time!");
-      Object(_song__WEBPACK_IMPORTED_MODULE_0__["playSong"])(card, audio);
+      Object(_song__WEBPACK_IMPORTED_MODULE_0__["playSong"])(song, audio);
     }
     // console.log(audio.currentTime);
     if (audio.currentTime >= 30){
       audio.volume = 1 - ((audio.currentTime - 30) / 10)
     }
     if (audio.currentTime >= 40){
-      Object(_song__WEBPACK_IMPORTED_MODULE_0__["pauseSong"])(card, audio);
+      Object(_song__WEBPACK_IMPORTED_MODULE_0__["pauseSong"])(song, audio);
       checkbox.cheked = false;
       time.value = "";
     };
@@ -264,38 +276,41 @@ const fetchSongCover = (songs) => {
   });
 };
 
-const playSong = (card, audio) => {
+const playSong = (song, audio) => {
+  audio.currentTime = song.playFrom;
   audio.play();
-  card.querySelector(".card-image").innerHTML = pauseString;
+  song.card.querySelector(".card-image").innerHTML = pauseString;
 };
 
-const pauseSong = (card, audio) => {
-  card.querySelector(".card-image").innerHTML = playString;
+const pauseSong = (song, audio) => {
+  song.card.querySelector(".card-image").innerHTML = playString;
   audio.pause();
 };
 
 // Initialize play event listener
-const initPlayEvent = (card, audio) => {
-  const cardImage = card.querySelector(".card-image");
+const initPlayEvent = (song, audio) => {
+  const cardImage = song.card.querySelector(".card-image");
   audio.addEventListener("canplay", (event) => {
-    cardImage.innerHTML = `${playString}`;
+    if(cardImage.innerHTML.trim() === loadingString){
+      cardImage.innerHTML = `${playString}`;
+    }
   });
 
   // console.log(card);
   cardImage.addEventListener( "touchmove", (event) => {
-    if(cardImage.innerHTML != loadingString){
+    if(cardImage.innerHTML.trim() != loadingString){
       audio.currentTime = 0;
-      pauseSong(card, audio);
+      pauseSong(song, audio);
     }
   });
 
   cardImage.addEventListener( "click", (event) => {
-    if(card.cardImageinnerHTML != loadingString){
+    if(song.card.querySelector(".card-image").innerHTML != loadingString){
       if (audio.paused) {
-        playSong(card, audio);
+        playSong(song, audio);
       }
       else {
-        pauseSong(card, audio);
+        pauseSong(song, audio);
       }
     }
   });
@@ -308,7 +323,7 @@ const asyncSongLoading = async (song) => {
           let audio = new Audio();
           audio.src = song.source;
           audio.load();
-          initPlayEvent(song.card, audio);
+          initPlayEvent(song, audio);
           resolve(`${song.name} is loaded!`);
           Object(_scheduler__WEBPACK_IMPORTED_MODULE_0__["initScheduler"])(song, audio);
         })
