@@ -159,6 +159,12 @@ var SONGS = [
     source:'https://archive.org/download/SpaceJamThemeSong/Space%20Jam%20Theme%20Song.mp3',
     scheduled: false,
     playFrom: "0"
+  },
+  { name: "Coca Cola",
+    card: document.querySelector(".coca-cola"),
+    source:'https://yannklein.github.io/jingle-pad/coke.mp3',
+    scheduled: false,
+    playFrom: "0"
   }
 ];
 
