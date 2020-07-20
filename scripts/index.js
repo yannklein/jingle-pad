@@ -55,6 +55,12 @@ var SONGS = [
     source:'https://fcsongs.com/uploads/audio/Queen - We Are The Champions.mp3',
     scheduled: false,
     playFrom: "33"
+  },
+  { name: "Space Jam",
+    card: document.querySelector(".space-jam"),
+    source:'https://archive.org/download/SpaceJamThemeSong/Space%20Jam%20Theme%20Song.mp3',
+    scheduled: false,
+    playFrom: "0"
   }
 ];
 
