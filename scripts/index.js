@@ -40,7 +40,7 @@ var SONGS = [
   },
   { name: "Star Trek",
     card: document.querySelector(".star-trek"),
-    source:'https://apiyt.com/convertto.php?utm_source=Mp3bearx.info&sid=p5kcBxL7-qI;1584891148;ca1a97ee0d8825d70fd12b25e777a99&p=1',
+    source:'https://d8.ytcore.org/sse1/?jobid=ebed4da535edc3fba760950ae8c9780b',
     scheduled: false,
     playFrom: "51.5"
   },
