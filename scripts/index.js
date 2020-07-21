@@ -16,7 +16,7 @@ var SONGS = [
   },
   { name: "Back to the Future",
     card: document.querySelector(".future"),
-    source: 'http://soundfxcenter.com/movies/back-to-the-future/8d82b5_Back_to_the_Future_Theme_Song.mp3',
+    source: 'https://yannklein.github.io/jingle-pad/future.mp3',
     scheduled: false,
     playFrom: "0"
   },
